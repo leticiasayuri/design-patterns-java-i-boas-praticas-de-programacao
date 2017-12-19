@@ -18,6 +18,18 @@ public class Programa {
 		calculador.realizaCalculo(orcamento, iccc);
 		calculador.realizaCalculo(orcamento, icpp);
 		calculador.realizaCalculo(orcamento, ikcv);
+		
+		Imposto impostos = new ISS(new ICMS());
+		
+		Orcamento orcamentoParaImpostos = new Orcamento(500.0);
+		
+		System.out.println(impostos.calcula(orcamentoParaImpostos));
+		
+		Imposto impostoAltoEOutro = new ImpostoMuitoAlto(new ISS());
+		
+		Orcamento orcamentoParaImpostoAlto = new Orcamento(1000.0);
+		
+		System.out.println(impostoAltoEOutro.calcula(orcamentoParaImpostoAlto));
 	}
 
 }

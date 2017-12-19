@@ -1,6 +1,14 @@
 package com.alura.impostos;
 
 public class ICPP extends TemplateParaImpostoCondicional {
+	
+	public ICPP(Imposto outroImposto) {
+		super(outroImposto);
+	}
+	
+	public ICPP() {
+		super();
+	}
 
 	@Override
 	protected double minimaTaxacao(Orcamento orcamento) {

@@ -1,13 +1,21 @@
 package com.alura.impostos;
 
-public abstract class TemplateParaImpostoCondicional implements Imposto {
+public abstract class TemplateParaImpostoCondicional extends Imposto {
+	
+	public TemplateParaImpostoCondicional(Imposto outroImposto) {
+		super(outroImposto);
+	}
+	
+	public TemplateParaImpostoCondicional() {
+		super();
+	}
 
 	@Override
 	public final double calcula(Orcamento orcamento) {
 		if (deveUsarMaximaTaxacao(orcamento)) {
-			return maximaTaxacao(orcamento);
+			return maximaTaxacao(orcamento) + calculaOutroImposto(orcamento);
 		} else {
-			return minimaTaxacao(orcamento);
+			return minimaTaxacao(orcamento) + calculaOutroImposto(orcamento);
 		}
 	}
 
