@@ -34,4 +34,14 @@ public class Orcamento {
 	public void adicionaItem(Item item) {
 		itens.add(item);
 	}
+	
+	public boolean existeItem(String nomeItem) {
+		for (Item item : itens) {
+			if (item.getNome().equals(nomeItem)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }
