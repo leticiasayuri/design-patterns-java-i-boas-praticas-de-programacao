@@ -3,7 +3,7 @@ package com.alura.impostos;
 public abstract class TemplateParaImpostoCondicional implements Imposto {
 
 	@Override
-	public double calcula(Orcamento orcamento) {
+	public final double calcula(Orcamento orcamento) {
 		if (deveUsarMaximaTaxacao(orcamento)) {
 			return maximaTaxacao(orcamento);
 		} else {
