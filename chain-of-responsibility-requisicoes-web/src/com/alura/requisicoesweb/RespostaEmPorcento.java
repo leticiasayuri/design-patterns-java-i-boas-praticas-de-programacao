@@ -3,6 +3,10 @@ package com.alura.requisicoesweb;
 public class RespostaEmPorcento implements Resposta {
 	
 	private Resposta proximaResposta;
+	
+	public RespostaEmPorcento(Resposta proximaResposta) {
+		setProximaResposta(proximaResposta);
+	}
 
 	@Override
 	public void responde(Requisicao requisicao, Conta conta) {
@@ -14,8 +18,8 @@ public class RespostaEmPorcento implements Resposta {
 	}
 
 	@Override
-	public void setProxima(Resposta resposta) {
-		this.proximaResposta = resposta;
+	public void setProximaResposta(Resposta proximaResposta) {
+		this.proximaResposta = proximaResposta;
 	}
 
 }

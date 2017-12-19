@@ -3,6 +3,10 @@ package com.alura.requisicoesweb;
 public class RespostaEmXML implements Resposta {
 	
 	private Resposta proximaResposta;
+	
+	public RespostaEmXML(Resposta proximaResposta) {
+		setProximaResposta(proximaResposta);
+	}
 
 	@Override
 	public void responde(Requisicao requisicao, Conta conta) {
@@ -18,8 +22,8 @@ public class RespostaEmXML implements Resposta {
 	}
 
 	@Override
-	public void setProxima(Resposta resposta) {
-		this.proximaResposta = resposta;
+	public void setProximaResposta(Resposta proximaResposta) {
+		this.proximaResposta = proximaResposta;
 	}
 
 }

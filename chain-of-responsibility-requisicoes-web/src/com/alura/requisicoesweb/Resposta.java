@@ -4,5 +4,5 @@ public interface Resposta {
 
 	void responde(Requisicao requisicao, Conta conta);
 	
-	void setProxima(Resposta resposta);
+	void setProximaResposta(Resposta proximaResposta);
 }
