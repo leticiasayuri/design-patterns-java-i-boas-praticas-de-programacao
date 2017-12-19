@@ -1,14 +1,20 @@
 package com.alura.impostos;
 
-public class ICPP implements Imposto {
+public class ICPP extends TemplateParaImpostoCondicional {
 
 	@Override
-	public double calcula(Orcamento orcamento) {
-		if (orcamento.getValor() < 500.0) {
-			return orcamento.getValor() * 0.05;
-		} else {
-			return orcamento.getValor() * 0.07;
-		}
+	public double minimaTaxacao(Orcamento orcamento) {
+		return orcamento.getValor() * 0.07;
+	}
+
+	@Override
+	public double maximaTaxacao(Orcamento orcamento) {
+		return orcamento.getValor() * 0.05;
+	}
+
+	@Override
+	public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
+		return (orcamento.getValor() < 500.0);
 	}
 
 }

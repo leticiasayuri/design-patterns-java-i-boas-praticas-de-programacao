@@ -1,15 +1,6 @@
 package com.alura.impostos;
 
-public class IKCV implements Imposto {
-
-	@Override
-	public double calcula(Orcamento orcamento) {
-		if (orcamento.getValor() > 500.0 && haItemComValorMaiorQueCemReaisNo(orcamento)) {
-			return orcamento.getValor() * 0.10;
-		} else {
-			return orcamento.getValor() * 0.06;
-		}
-	}
+public class IKCV extends TemplateParaImpostoCondicional {
 
 	private boolean haItemComValorMaiorQueCemReaisNo(Orcamento orcamento) {
 		for (Item item : orcamento.getItens()) {
@@ -19,6 +10,21 @@ public class IKCV implements Imposto {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public double minimaTaxacao(Orcamento orcamento) {
+		return orcamento.getValor() * 0.10;
+	}
+
+	@Override
+	public double maximaTaxacao(Orcamento orcamento) {
+		return orcamento.getValor() * 0.06;
+	}
+
+	@Override
+	public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
+		return (orcamento.getValor() > 500.0 && haItemComValorMaiorQueCemReaisNo(orcamento));
 	}
 
 }
