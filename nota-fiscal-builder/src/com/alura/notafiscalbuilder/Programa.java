@@ -1,5 +1,8 @@
 package com.alura.notafiscalbuilder;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Programa {
 	
 	public static void main(String[] args) {
@@ -20,12 +23,13 @@ public class Programa {
 //		
 //		System.out.println("Data Emissao: " + notaFiscal.getDataEmissao());
 		
-		NotaFiscalBuilder builder = new NotaFiscalBuilder();
-		builder.adicionaAcao(new EnviadorDeEmail());
-		builder.adicionaAcao(new NotaFiscalDao());
-		builder.adicionaAcao(new EnviadorDeSms());
-		builder.adicionaAcao(new Impressora());
-		builder.adicionaAcao(new Multiplicador(2));
+		List<AcaoAposGerarNota> acoes = Arrays.asList(new EnviadorDeEmail(), new NotaFiscalDao(), new EnviadorDeSms(), new Impressora(), new Multiplicador(2));
+		NotaFiscalBuilder builder = new NotaFiscalBuilder(acoes);
+//		builder.adicionaAcao(new EnviadorDeEmail());
+//		builder.adicionaAcao(new NotaFiscalDao());
+//		builder.adicionaAcao(new EnviadorDeSms());
+//		builder.adicionaAcao(new Impressora());
+//		builder.adicionaAcao(new Multiplicador(2));
 		
 		NotaFiscal notaFiscal = builder.paraEmpresa("Alura")
 									   .comCNPJ("123456789")

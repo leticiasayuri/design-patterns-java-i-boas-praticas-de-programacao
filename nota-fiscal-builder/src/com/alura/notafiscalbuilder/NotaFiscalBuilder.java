@@ -22,14 +22,14 @@ public class NotaFiscalBuilder {
 	
 	private List<AcaoAposGerarNota> todasAcoesASeremExecutadas;
 	
-	public NotaFiscalBuilder() {
-		this.todasAcoesASeremExecutadas = new ArrayList<>();
+	public NotaFiscalBuilder(List<AcaoAposGerarNota> acoes) {
+		this.todasAcoesASeremExecutadas = acoes;
 	}
 	
 	//Método para receber os notificadores
-	public void adicionaAcao(AcaoAposGerarNota acao) {
-		this.todasAcoesASeremExecutadas.add(acao);
-	}
+//	public void adicionaAcao(AcaoAposGerarNota acao) {
+//		this.todasAcoesASeremExecutadas.add(acao);
+//	}
 	
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
