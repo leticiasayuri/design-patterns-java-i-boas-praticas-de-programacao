@@ -30,8 +30,8 @@ public class NotaFiscalBuilder {
 		return this;
 	}
 	
-	public NotaFiscalBuilder naDataAtual() {
-		this.dataEmissao = Calendar.getInstance();
+	public NotaFiscalBuilder naData(Calendar data) {
+		this.dataEmissao = data;
 		return this;
 	}
 	
@@ -49,6 +49,7 @@ public class NotaFiscalBuilder {
 	}
 	
 	public NotaFiscal build() {
-		return new NotaFiscal(razaoSocial, cnpj, dataEmissao, valorBruto, impostos, itens, observacoes);
+		Calendar data = dataEmissao == null ? Calendar.getInstance() : dataEmissao;
+		return new NotaFiscal(razaoSocial, cnpj, data, valorBruto, impostos, itens, observacoes);
 	}
 }
