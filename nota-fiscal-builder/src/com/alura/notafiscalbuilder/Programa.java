@@ -25,6 +25,7 @@ public class Programa {
 		builder.adicionaAcao(new NotaFiscalDao());
 		builder.adicionaAcao(new EnviadorDeSms());
 		builder.adicionaAcao(new Impressora());
+		builder.adicionaAcao(new Multiplicador(2));
 		
 		NotaFiscal notaFiscal = builder.paraEmpresa("Alura")
 									   .comCNPJ("123456789")
@@ -32,5 +33,7 @@ public class Programa {
 									   .com(new ItemNota("Item 2", 200.0))
 									   .comObservacoes("Obs")
 									   .build();
+		
+		System.out.println("Valor Bruto da Nota: " + notaFiscal.getValorBruto());
 	}
 }
