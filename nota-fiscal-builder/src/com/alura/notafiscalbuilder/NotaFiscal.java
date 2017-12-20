@@ -55,12 +55,12 @@ public class NotaFiscal {
 		this.dataEmissao = dataEmissao;
 	}
 
-	public double getValorBruno() {
+	public double getValorBruto() {
 		return valorBruto;
 	}
 
-	public void setValorBruno(double valorBruno) {
-		this.valorBruto = valorBruno;
+	public void setValorBruto(double valorBruto) {
+		this.valorBruto = valorBruto;
 	}
 
 	public double getImpostos() {
